@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Álbum da Copa</title>
+</head>
+<body>
+    <h1>Álbum da Copa - Seleções</h1>
+    <p>Selecione um país para gerenciar as figurinhas:</p>
+    <hr>
+
+    <ul>
+        {% for selecao in selecoes %}
+            <li>
+                <a href="{% url 'detalhe_selecao' selecao.id %}">{{ selecao.nome }}</a>
+            </li>
+        {% empty %}
+            <li>Nenhuma seleção cadastrada no banco de dados ainda.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Figurinhas de {{ selecao.nome }}</title>
+</head>
+<body>
+    <h1>{{ selecao.nome }}</h1>
+    <a href="{% url 'dashboard' %}">← Voltar para o Dashboard</a>
+    <hr>
+
+    <h3>Lista de Jogadores:</h3>
+    <ul>
+        {% for figurinha in figurinhas %}
+            <li>
+                <strong>Nº {{ figurinha.numero }}</strong> - {{ figurinha.nome_jogador }}
+                {% if figurinha.eh_rara %}
+                    <span style="color: gold;">⭐ (Rara!)</span>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>Nenhuma figurinha cadastrada para esta seleção.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
